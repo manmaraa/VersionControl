@@ -30,6 +30,7 @@ namespace UserMaintenance
             listBox1.DataSource = users;
 
             button2.Text = Resource1.Felirat;
+            button3.Text = Resource1.Delete;
             
         }
 
@@ -72,6 +73,12 @@ namespace UserMaintenance
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            users.Remove((User)listBox1.SelectedItem);
         }
     }
 }
