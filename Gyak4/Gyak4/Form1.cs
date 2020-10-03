@@ -86,8 +86,8 @@ namespace Gyak4
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 8] = "";
-                values[counter, 9] = "=" + GetCell(counter, 5) + "/" +GetCell(counter,7);
+              
+                values[counter, 8] = "=" + GetCell(counter, 5) + "/" +GetCell(counter,7);
                 counter++;
             }
             xlSheet.get_Range(
@@ -116,7 +116,14 @@ namespace Gyak4
 
             Excel.Range utolsoOszlopRange = xlSheet.get_Range(GetCell(1, lastRowID), GetCell(lastColumnID, lastRowID));
             utolsoOszlopRange.Interior.Color = Color.LightGreen;
-            utolsoOszlopRange.NumberFormat = Math.Round(utolsoOszlopRange.Value, 2);
+            utolsoOszlopRange.NumberFormat = Math.Round(Convert.ToDouble(utolsoOszlopRange.Value), 2);
+            foreach (Flat a in Flats)
+            {
+                values[counter, 8] = Math.Round(Convert.ToDouble(values[counter, 8]),1);
+                
+            }
+                
+            
         }
         private string GetCell(int x, int y)
         {
