@@ -87,7 +87,7 @@ namespace Gyak4
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
               
-                values[counter, 8] = "=" + GetCell(counter, 5) + "/" +GetCell(counter,7);
+                values[counter, 8] = "=" + GetCell(counter+2, 6) + "/" +GetCell(counter+2,8);
                 counter++;
             }
             xlSheet.get_Range(
@@ -116,12 +116,14 @@ namespace Gyak4
 
             Excel.Range utolsoOszlopRange = xlSheet.get_Range(GetCell(1, lastRowID), GetCell(lastColumnID, lastRowID));
             utolsoOszlopRange.Interior.Color = Color.LightGreen;
-            utolsoOszlopRange.NumberFormat = Math.Round(Convert.ToDouble(utolsoOszlopRange.Value), 2);
-            foreach (Flat a in Flats)
+            //utolsoOszlopRange.NumberFormat = Math.Round(Convert.ToDouble(utolsoOszlopRange.Value), 2);
+          /*  for (int i = 1; i < lastRowID+1; i++)
             {
-                values[counter, 8] = Math.Round(Convert.ToDouble(values[counter, 8]),1);
-                
+                double Szam = (Convert.ToDouble(values[i, 8]));
             }
+                     */
+                
+            
                 
             
         }
