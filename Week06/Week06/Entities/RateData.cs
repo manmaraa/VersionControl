@@ -8,8 +8,8 @@ namespace Week06.Entities
 {
     class RateData
     {
-        DateTime Date;
-        string Currency;
-        decimal Value;
+        public DateTime Date { get; set; }
+       public string Currency { get; set; }
+       public decimal Value { get; set; }
     }
 }
