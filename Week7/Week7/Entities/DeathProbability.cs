@@ -10,7 +10,7 @@ namespace Week7.Entities
     {
         public int YearsOld { get; set; }
         
-        public int NbrOfChildren { get; set; }
+        public Gender Gender { get; set; }
         public double DeathProb { get; set; }
 
         
