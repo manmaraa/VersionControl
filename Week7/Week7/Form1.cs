@@ -14,10 +14,13 @@ namespace Week7
 {
     public partial class Form1 : Form
     {
+        int zaroev;
         Random rng = new Random(1234);
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<int> maleNbrs = new List<int>();
+        List<int> femaleNbrs = new List<int>();
         public Form1()
         {
             
@@ -27,7 +30,7 @@ namespace Week7
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProb(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProb(@"C:\Temp\halál.csv");
-            for (int year = 2005; year <= 2024; year++)
+            for (int year = 2005; year <= zaroev; year++)
             {
                
                 for (int i = 0; i < Population.Count; i++)
@@ -135,6 +138,47 @@ namespace Week7
                 }
             }
         }
+        private void Simulation()
+        {
+           
+            
 
+           
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            maleNbrs.Clear();
+            femaleNbrs.Clear();
+            Simulation();
+            DisplayResults();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            zaroev = int.Parse(numericUpDown1.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() != DialogResult.OK) return;
+            textBox1.Text = ofd.FileName;
+        }
+        public void DisplayResults()
+        {
+            var i = 0;
+            for (int year = 2005; year < zaroev; year++)
+            {
+
+                richTextBox1.AppendText(string.Format("Szimulációs év: {0} \n \t Fiúk: {1} \n \t Lányok: {2} \n \n", year, maleNbrs[i], femaleNbrs[i]));
+                i++;
+            }
+        }
     }
 }
