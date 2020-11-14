@@ -14,6 +14,7 @@ namespace Gyak8
 {
     public partial class Form1 : Form
     {
+       
         private Toy _nextToy;
         private List<Toy> _toys = new List<Toy>();
 
@@ -32,6 +33,8 @@ namespace Gyak8
             InitializeComponent();
             Factory = new CarFactory();
         }
+     
+
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
@@ -66,7 +69,11 @@ namespace Gyak8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = button3.BackColor
+            };
+
         }
         private void DisplayNext()
         {
