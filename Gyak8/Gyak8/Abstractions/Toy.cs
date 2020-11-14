@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gyak8.Entities
+namespace Gyak8.Abstractions
 {
-    class BallFactory
+    class Toy
     {
-        public Ball CreateNew()
-        {
-            return new Ball();
-        }
     }
 }
